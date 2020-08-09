@@ -28,17 +28,38 @@ public class StudentBOImpl implements StudentBO {
 
     @Override
     public StudentDTO getStudent(String id) throws Exception {
-        return null;
+
+        try (Session session = HibernateUtil.getSession()) {
+            studentDAO.setSession(session);
+            session.beginTransaction();
+            Student student = studentDAO.get(id);
+            if (student != null) {
+                return new StudentDTO(student.getId(), student.getName(), student.getAddress(), student.getAge());
+            }
+            return null;
+        }
+
     }
 
     @Override
     public boolean updateStudent(StudentDTO dto) throws Exception {
-        return false;
+        try (Session session = HibernateUtil.getSession()) {
+            studentDAO.setSession(session);
+            session.beginTransaction();
+            boolean isUpdated = studentDAO.update(new Student(dto.getId(), dto.getName(), dto.getAddress(), dto.getAge()));
+            return isUpdated;
+        }
     }
 
     @Override
     public boolean deleteStudent(String id) throws Exception {
-        return false;
+        try (Session session = HibernateUtil.getSession()) {
+            studentDAO.setSession(session);
+            session.beginTransaction();
+            boolean isDeleted = studentDAO.delete(id);
+            session.getTransaction().commit();
+            return isDeleted;
+        }
     }
 
     @Override

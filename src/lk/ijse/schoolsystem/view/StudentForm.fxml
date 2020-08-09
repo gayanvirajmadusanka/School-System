@@ -12,9 +12,12 @@
                 <Font name="System Bold" size="35.0"/>
             </font>
         </Label>
-        <Button layoutX="364.0" layoutY="160.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete"/>
-        <Button layoutX="426.0" layoutY="160.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" text="Update"/>
-        <Button layoutX="492.0" layoutY="160.0" mnemonicParsing="false" onAction="#btnSaveOnAction" text="Save"/>
+        <Button layoutX="430.0" layoutY="152.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="25.0"
+                prefWidth="79.0" text="Delete"/>
+        <Button layoutX="316.0" layoutY="152.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0"
+                prefWidth="94.0" text="Update"/>
+        <Button layoutX="103.0" layoutY="152.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="25.0"
+                prefWidth="79.0" text="Save"/>
         <TableView fx:id="tbl" layoutY="200.0" prefHeight="200.0" prefWidth="600.0">
             <columns>
                 <TableColumn fx:id="colId" prefWidth="75.0" text="ID"/>
@@ -23,12 +26,15 @@
                 <TableColumn fx:id="colAge" prefWidth="91.0" text="Age"/>
             </columns>
         </TableView>
-        <TextField fx:id="txtId" layoutX="23.0" layoutY="101.0" prefHeight="25.0" prefWidth="79.0" text="Student Id"/>
+        <TextField fx:id="txtId" layoutX="23.0" layoutY="101.0" onAction="#txtStudentIdOnACtion" prefHeight="25.0"
+                   prefWidth="79.0" promptText="Student ID"/>
         <TextField fx:id="txtName" layoutX="113.0" layoutY="101.0" prefHeight="25.0" prefWidth="107.0"
-                   text="Student Name"/>
+                   promptText="Student Name"/>
         <TextField fx:id="txtAddress" layoutX="236.0" layoutY="101.0" prefHeight="25.0" prefWidth="202.0"
-                   text="Student Address"/>
+                   promptText="Student Address"/>
         <TextField fx:id="txtAge" layoutX="454.0" layoutY="101.0" prefHeight="25.0" prefWidth="134.0"
-                   text="Student Age"/>
+                   promptText="Student Age"/>
+        <Button layoutX="200.0" layoutY="152.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="25.0"
+                prefWidth="94.0" text="Search"/>
     </children>
 </AnchorPane>

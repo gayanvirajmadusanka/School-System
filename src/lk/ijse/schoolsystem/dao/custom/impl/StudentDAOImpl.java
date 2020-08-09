@@ -3,7 +3,6 @@ package lk.ijse.schoolsystem.dao.custom.impl;
 import lk.ijse.schoolsystem.dao.custom.StudentDAO;
 import lk.ijse.schoolsystem.entity.Student;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -35,9 +34,10 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public Student get(String s) throws Exception {
-        Query query = session.createQuery("SELECT FROM Student WHERE studentId=:id");
-        query.setParameter("id", s);
-        return (Student) query.list().get(0);
+        Student student = session.get(Student.class, s);
+        session.getTransaction().commit();
+
+        return student;
     }
 
     @Override
